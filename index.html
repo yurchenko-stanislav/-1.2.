@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор мудрости инженера</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+    .quote-box { max-width: 520px; background: #1e293b; padding: 36px; border-radius: 24px; border: 1px solid #334155; text-align: center; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); }
+    .badge { font-size: 11px; font-weight: bold; text-transform: uppercase; color: #38bdf8; letter-spacing: 1px; margin-bottom: 16px; }
+    .quote-text { font-size: 18px; font-style: italic; line-height: 1.6; margin: 20px 0; min-height: 70px; color: #e2e8f0; }
+    .author { font-size: 13px; color: #94a3b8; margin-bottom: 24px; font-weight: 500; }
+    button { background: #38bdf8; color: #0f172a; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; transition: transform 0.1s, background 0.2s; }
+    button:hover { background: #0284c7; color: white; }
+    button:active { transform: scale(0.98); }
+  </style>
+</head>
+<body>
+  <div class="quote-box">
+    <div class="badge">💡 Мысль дня разработчика</div>
+    <div class="quote-text" id="quote-display">«Работает — не трогай» — девиз плохого инженера. Хороший инженер делает так, чтобы код понимали другие.</div>
+    <div class="author" id="author-display">— Мартин Фаулер</div>
+    <button onclick="getRandomQuote()">Получить новую мысль</button>
+  </div>
+
+  <script>
+    const quotes = [
+      { text: "«Всегда пишите код так, будто сопровождать его будет агрессивный маньяк, знающий ваш адрес».", author: "Джон Вудс" },
+      { text: "«В программировании есть две сложные вещи: инвалидация кэша и придумывание названий».", author: "Мартин Фаулер" },
+      { text: "«Простота — необходимое условие надежности».", author: "Эдсгер Дейкстра" },
+      { text: "«Измерять продуктивность программиста подсчетом строк кода — это как оценивать постройку самолета по его весу».", author: "Билл Гейтс" },
+      { text: "«сколько тебе лет ? 17 и давно тебе 17? УЖЕ ДА!».", author: "Стефани Майер" },
+      { text: "«волк влюбился в овечку - глупая овечка - волк полный мазохист».", author: "Стефани Майер" },
+    ];
+
+    function getRandomQuote() {
+      const index = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote-display').innerText = quotes[index].text;
+      document.getElementById('author-display').innerText = "— " + quotes[index].author;
+    }
+  </script>
+</body>
+</html>
